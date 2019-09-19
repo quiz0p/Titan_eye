@@ -5,9 +5,7 @@
         <link href="../static/css/template.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
         <link rel="icon" type="image/ico" href="../static/images/EYE.jpg" >
-        <p style="text-align:center;"><img src="../static/images/titanfrontend.jpg" alt="Logo" ></p>
         <title>Eye Titan Report</title>
-        <h1>Report</h1>
 
     <script>
     
@@ -19,7 +17,6 @@
               response.status);
             return;
           }
-          // Examine the text in the response
           response.json().then(function(data) {
             let report = JSON.parse(data);
             console.log(report)
@@ -34,22 +31,11 @@
                 return size;
             };
 
-            // Get the size of an object
             var size = Object.size(report.face);
-            console.log(size)
-
-            //  Remove hardcoded length, 
-            //  Need to conver json object to array, or
-            //  nest the object inside the array
-
             for(let i = 0; i < size; i++){
-
-              console.log(new Date(report.end_time[i]));
               dataAppend +=  "<td>" + "<i class='fas fa-user'></i>"+ "</td>" + "<td>" + report.duration[i] + "</td>" +  "<td>" + report.start_time[i] + "</td>" +  "<td>" + report.cam_id[i] + "</td>" +"</tr>" + "<tr>"
-              // dataAppend +=  "<td>" + "<i class='fas fa-user'></i>"+ "</td>" + "<td>" + report.cam_id[i] + "</td>" +  "<td>" + report.start_time[i] + "</td>" + "<td>" + report.end_time[i] + "</td>" +"</tr>" + "<tr>"  
             }
             details.innerHTML = dataAppend;
-            console.log(dataAppend)
           });
         }
       )
@@ -60,22 +46,59 @@
     </script>
     </head>
     <body>
-        <!-- <p>This is an example of a simple HTML page which will be converted to report page.</p> -->
 
-        <div id="container">
-            <table id="faces">
-                <thead>
-                    <tr>
-                        <th> Face </th>
-                        <th> Duration </th>
-                        <th> Timestamp </th>
-                        <!-- <th> End Time </th> -->
-                        <th> Cam ID </th>
-                    </tr>
-                </theaad>
-                <tbody id="details">
-                </tbody>
-            </table>
+        <div class="container">
+            <div class="sidebar">
+                <div class="nav-links">
+                  <img src="../static/eyelogo.png" alt="Titan Eye"  width="100">
+                  <ul>
+                    <li>
+                      <a href="/">
+                        <i class="fab fa-dashcube"></i>
+                        Dashboard
+                      </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-cog"></i>
+                          Settings
+                        </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="image">
+                  <img src="../static/titanlogopoc.png" alt="Titan"  width="150">
+                </div>
+              </div>
+            <div class="report-body">
+
+                <div class="video-actions">
+
+                    <form method="post" action="/" enctype="multipart/form-data" class="form-display">
+              
+              
+                      <img src="../static/videologotitan.png" alt="Camera">
+                      <input type="file" name="file" id="upload-photo" required class="hidden" onchange="listenForInput()"/>
+                      <input type="submit" value="Video Uploaded!" class="video-uploaded" id="get-report" >
+
+                    </form>
+              
+              
+                  </div>
+              <table id="faces">
+                  <thead>
+                      <tr>
+                          <th> Face </th>
+                          <th> Duration </th>
+                          <th> Timestamp </th>
+                          <!-- <th> End Time </th> -->
+                          <th> Cam ID </th>
+                      </tr>
+                  </theaad>
+                  <tbody id="details">
+                  </tbody>
+              </table>
+            </div>
         </div>
 
         

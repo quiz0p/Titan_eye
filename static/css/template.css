@@ -1,15 +1,13 @@
-*{
-    font-family: 'Source Sans Pro', sans-serif;}
-
 body{
     padding: 0px;
+    font-family: 'Roboto', sans-serif;
     margin: 0px;
 }
 
 .container{
     height: 100vh;
     width: 100%;
-    background: #efefef;
+    background: #FFFFFF;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,15 +15,20 @@ body{
 
 .video-actions{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     width: 100%;
 }
 
 .form-display{
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     width: 40%;
+    border: 1px dashed gray;
+    border-radius: 5px;
+    height: 40vh;
+    width: 60%;
 }
 
 .input-button{
@@ -35,25 +38,31 @@ body{
 }
 
 .get-report{
-    width: 100px;
-    height: 60px;
-    border-radius: 2px;
+    width: 250px;
+    height: 40px;
+    background: #091B38;
+    border-radius: 50px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: white;
     border: none;
-    font-weight: 600;
+    font-size: 1.25rem;
 }
 
 .hidden{
     display: none;
 }
 
-.select-file-button{
-    width: 150px;
+#select-file-button{
+    width: 250px;
     height: 40px;
-    background: skyblue;
-    border-radius: 2px;
+    background: #091B38;
+    border-radius: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 
 label{
@@ -64,15 +73,14 @@ label{
 #faces {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 60%;
   }
   
   #faces td, #faces th {
-    border: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
     padding: 8px;
   }
   
-  #faces tr{background-color: #f2f2f2;}
   
   #faces tr:hover {background-color: #ddd;}
   
@@ -80,14 +88,94 @@ label{
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #4CAF50;
-    color: white;
   }
 
-  #faces{ 
-      background: green;
-  }
+ 
 
   .table{
       background: blue!important;
   }
+
+  /**
+  * UI rework starts from here
+  **/
+
+  /** Page container **/
+  .container{
+      display: flex;
+  }
+
+  /** Sidebar **/
+  .sidebar{
+      width: 20%;
+      background-color: #091B38;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+  }
+  .nav-links{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+    ul{
+        padding: 0px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    li{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        list-style: none;
+        width: 100%;
+        padding: 16px, 0px;
+    }
+    a{
+        text-decoration: none;
+        color: white;
+        font-weight: 300;
+        padding: 16px 0px;
+        width: 100px;
+    }
+    li:hover{
+        background: #22324C;
+    }
+    .display-none{
+        display: none!important;
+    }
+    .display-visible{
+        display: flex!important;
+    }
+    #spinner{
+        display: none;
+    }
+    .report-body{
+        width: 80%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .video-uploaded{
+        width: 250px;
+    height: 40px;
+    background: #091B38;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: none;
+    font-size: 1.25rem;
+    }
+    label{
+        display: flex;
+    }
+
